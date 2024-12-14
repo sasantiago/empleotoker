@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 namespace testoker.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
 public class UserController : ControllerBase
 {
     private readonly TestContext _context;
@@ -19,6 +18,8 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
+    [Route("api/Guardar[controller]")]
+
     public async Task<IActionResult> CreateUser([FromBody] Usuario user)
     {
         if (!ModelState.IsValid)
@@ -35,6 +36,8 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
+    [Route("api/Obetener[controller]")]
+
     public async Task<IActionResult> GetUsers()
     {
         var users = await _context.Usuarios.ToListAsync();
